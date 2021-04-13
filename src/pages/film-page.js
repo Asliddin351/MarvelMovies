@@ -4,7 +4,13 @@ import React from 'react'
 const FilmPage = () => {
 
 	return (
-		<div></div>
+		<div className='container'>
+			<div className='row'>
+				<div className = 'col-md-6'>
+
+				</div>
+			</div>
+		</div>
 	)
 }
 

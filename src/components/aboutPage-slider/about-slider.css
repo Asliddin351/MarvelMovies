@@ -1,0 +1,12 @@
+.at {
+    padding: 150px 0;
+    background-image: url(../../images/about-bg.jpg);
+    background-size: cover;
+    background-position-y: 15%;
+    background-position-x: center;
+}
+.at>div {
+    font-size: 4rem;
+    color: #fff;
+    font-weight: 500;
+}

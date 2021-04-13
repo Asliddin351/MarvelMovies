@@ -32,9 +32,12 @@ function Navbar() {
 
     const [visible, setVisible] = useState(false)
 
-    const navbarToggle = () => {
-       
-        setVisible(!visible)
+
+    const showNavbar = () => {
+        setVisible(true);
+    }
+    const hideNavbar = () => {
+        setVisible(false)
     }
  
 
@@ -44,11 +47,11 @@ function Navbar() {
                 <Link to={'/'} className='logo'><img src={logo} height='45' alt='Marvel'/></Link>
             
                 
-                    <button className='navbar-toggler' type='button' onClick={navbarToggle}>
+                    <button className='navbar-toggler' type='button' onClick={showNavbar}>
                         <span className='navbar-toggler-icon'></span>
                     </button>
                   
-                    {visible === true ? <Backdrop hide={navbarToggle} /> : null}
+                    {visible === true ? <Backdrop hide={hideNavbar} /> : null}
 
                     <ul className={`navbar__list ${visible ? 'navbar__list--show' : ''}`}>
                         
@@ -56,7 +59,7 @@ function Navbar() {
                             return(
 
                                 <li key={index} className='navbar__item'>
-                                    <Link to={link.url} className={`navbar__link ${link.counter ? `fav-link` : ''}`}  onClick={navbarToggle}>
+                                    <Link to={link.url} className={`navbar__link ${link.counter ? `fav-link` : ''}`}  onClick={hideNavbar}>
 
                                         {link.counter ? <span className='bg-danger'>{count}</span> : null}
 

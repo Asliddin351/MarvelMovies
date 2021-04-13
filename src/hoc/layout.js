@@ -1,19 +1,17 @@
 import React from 'react'
 import Navbar from '../components/navbar/navbar'
-import HomePage from '../pages/home-page'
-
+import Footer from '../components/footer/footer'
 const Layout = (props) => {
 	return (
 		<div>
 			<header>
 				<Navbar/>
-				<HomePage/>
 			</header>
 			<main>
 				{props.children}
 			</main>
 			<footer>
-
+				<Footer />
 			</footer>
 		</div>
 	)
