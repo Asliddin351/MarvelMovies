@@ -7,7 +7,7 @@ const FavouritePage = (props) => {
 		<section>
 			<div className='container'>
 				<h2>Избранное</h2>
-				<FilmPage/>
+				{/* <FilmPage/> */}
 			</div>
 		</section>
 	)

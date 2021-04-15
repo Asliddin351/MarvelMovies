@@ -1,7 +1,15 @@
+import data from '../data/data.json'
+
+
+
 export function getFilmFormLocalstorage() {
-    return localStorage.getItem('name')
+    return JSON.parse(localStorage.getItem('films'))
 }
 
-export function saveFilmToLocalstorage(filmName) {
-    return localStorage.setItem('name', filmName)
+export function saveFilmToLocalstorage() {
+    return localStorage.setItem('films', JSON.stringify(data))
+}
+
+export function removeFilmFromLocalstorage () {
+    return localStorage.removeItem('films')
 }

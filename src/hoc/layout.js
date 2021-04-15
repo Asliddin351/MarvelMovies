@@ -1,9 +1,11 @@
 import React from 'react'
 import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
+import './layout.css'
+
 const Layout = (props) => {
 	return (
-		<div>
+		<>
 			<header>
 				<Navbar/>
 			</header>
@@ -13,7 +15,7 @@ const Layout = (props) => {
 			<footer>
 				<Footer />
 			</footer>
-		</div>
+		</>
 	)
 }
 
