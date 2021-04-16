@@ -8,8 +8,22 @@ export const FilmContextProvider = (props) => {
     
     const [films, setFilms] = useState(getFilmFormLocalstorage() || [])
 
+
+
+
     
     const actions = {
+
+       
+
+        favBgToggler: () => {
+            setBgfav(!bgfav)
+        },
+
+        countFav: () => {
+            setCount(count++)
+        },
+
         addFilm: (id) => {
            
         },

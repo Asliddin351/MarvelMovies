@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Link} from 'react-router-dom'
 import Backdrop from '../backdrop/backdrop'
 import logo from '../../images/logo.jpg'
 
 import './navbar.css'
+import { FilmContext } from '../../context/films-context'
 
 
 
@@ -28,17 +29,25 @@ const links = [
 ]
 
 function Navbar() {
-    const [count, setCount] = useState('0')
 
+    
+
+    const [films, actions] = useContext(FilmContext)
+
+    
     const [visible, setVisible] = useState(false)
-
 
     const showNavbar = () => {
         setVisible(true);
     }
+
     const hideNavbar = () => {
         setVisible(false)
     }
+    
+    
+
+    console.log(actions.count)
  
 
     return (
@@ -61,7 +70,7 @@ function Navbar() {
                                 <li key={index} className='navbar__item'>
                                     <Link to={link.url} className={`navbar__link ${link.counter ? `fav-link` : ''}`}  onClick={hideNavbar}>
 
-                                        {link.counter ? <span className='bg-danger'>{count}</span> : null}
+                                        {link.counter ? <span className='bg-danger'>{films.count}</span> : null}
 
                                         <i className={`fas fa-${link.icon}`}></i>
                                         {link.name}
