@@ -1,62 +1,88 @@
 
 import React, {useContext} from 'react'
 import { FilmContext } from './../context/films-context';
-import { useParams } from "react-router-dom"
-import {Link} from 'react-router-dom'
+import { useParams, Link } from "react-router-dom"
 import Card from '../components/card/card'
 
 const FilmPage = () => {
 
-	const [films, actions] = useContext(FilmContext)
+	const films = useContext(FilmContext)[0]
 
     const params = useParams()
 
-	const fav = () =>{
-		actions.favBgToggler()
-	}
 	
 
-	const findeFilm = films.find(function (film, index) {
-        if (film.ID == params.id) {
+	
+	const findeFilm = films.find(function (film) {
+        if (film.ID === params.id) {
             return film
         }
-
+		
         return false
     })
+	
+
+	
 
 
-	const { ID, Poster, Title, Year, Runtime, Country, Director, imdbRating, bgfav } = findeFilm
+	
 
 	return (
-		<div className='container'>
+		<div className='container mt-5'>
 			<div className='row'>
-				<div className = 'col-xs-12 col-lg-8'>
-					{/* <Card film={findeFilm}/> */}
-					<div className='card'>
-						<div className='card-body'>
-							<div className='right-top'>
-                				<button onClick={()=>actions.favBgToggler} type='button' className={`right-top__btn ${bgfav ? 'bg-success' : 'bg-danger'}`}><i className="fas fa-heart"></i></button>
-                				<div className='raiting bg-info'>{imdbRating}</div>
-            				</div>
-							<img className='poster' src={Poster} alt={Title}/>
-								<h5 className='card-title'>
-									{Title}
-								</h5>
-								<ul className='list-group list-group__flash'>
-									<li className='list-group-item'>Год выпуска: {Year}</li>
-									<li className='list-group-item'>Длительность: {Runtime}</li>
-									<li className='list-group-item'>Страна: {Country}</li>
-									<li className='list-group-item'>Режиссер: {Director}</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				<div className = 'col-xs-12 col-lg-4'>
-					
+				<div className='col-xs-12 col-lg-8 film-page__card-body'>
+						<Card key={findeFilm.ID} film={findeFilm}/>
+						
+						
+							{films.map(el=>{
+								if (el.ID === params.id) {
+								return (
+									<div key={el.ID} className='card-footer'>
+										<h5 className='mt-2 mb-4'>Краткое описание</h5>
+										<p className='mt-2 mb-4'>{el.Plot}</p>
+										<h5 className='mt-2 mb-5'>Дополнительная информация:</h5>
+										<ul className='info-list'>
+											<li> <b> Оценки: </b> {`${el.Ratings[0].Source}: ${el.Ratings[0].Value};  ${el.Ratings[1].Source}: ${el.Ratings[1].Value};  ${el.Ratings[2].Source}: ${el.Ratings[2].Value}`}</li>
+											<li> <b> Актёры: </b>  {el.Actors}</li>
+											<li> <b> Награды: </b>  {el.Awards}</li>
+											<li> <b> Кассовый сбор: </b> {el.BoxOffice}</li>
+											<li> <b> DVD: </b> {el.DVD}</li>
+											<li> <b> Продюссер: </b>  {el.Director}</li>
+											<li> <b> Жанр: </b>  {el.Genre}</li>
+											<li> <b> Языки: </b>  {el.Language}</li>
+											<li> <b> Производство: </b>  {el.Production}</li>
+											<li> <b> Рейтинг просмотра: </b>  {el.Rated}</li>
+											<li> <b> Дата выхода: </b>  {el.Released}</li>
+											<li> <b> Тип: </b>  {el.Type}</li>
+											<li> <b> Сценаристы: </b>  {el.Writer}</li>
+										</ul>
+									</div>
+								)}else {return null}
+							})}
+				</div>
+
+				<div className='col-xs-12  col-lg-4 other-films'>
+					<h5>Другие фтльмы:</h5>
+						{films.map(element=>{
+							return (
+								<div key={element.ID} className='mini-card mb-2 mt-2'>
+									<img className='mini-card__poster' src={element.Poster}  alt={element.Title}/>
+									<div className='p-2'>
+										<Link  to={`/film/` + element.ID} className=' mb-2 d-inline-block'>{element.Title}</Link>
+										<p className='mb-0'>Год выпуска: {element.Year}</p>
+										<p className='mb-0'>Длительность: {element.Runtime}</p>
+									</div>
+
+								</div>
+							)
+						})}
 				</div>
 			</div>
-		</div>
+		</div>	
 	)
 }
 
 export default FilmPage
+
+
+

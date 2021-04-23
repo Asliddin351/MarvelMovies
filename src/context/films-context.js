@@ -1,46 +1,29 @@
 import { useState, createContext } from 'react';
-import { getFilmFormLocalstorage, saveFilmToLocalstorage, removeFilmFromLocalstorage } from '../utils/filmsLocalStorege';
+import data from '../data/data.json'
 
 export const FilmContext = createContext()
 
 
 export const FilmContextProvider = (props) => {
     
-    const [films, setFilms] = useState(getFilmFormLocalstorage() || [])
+    const [films, setFilms] = useState(data || [])
 
-
-
+   
+     
+    
 
     
     const actions = {
-
-       
-
-        favBgToggler: () => {
-            setBgfav(!bgfav)
-        },
-
-        countFav: () => {
-            setCount(count++)
-        },
-
-        addFilm: (id) => {
-           
-        },
-        savaToFavourite: ()=> {
-            
-        },
-
-        deleteFavourite: ()=>{
+        clearFilms: () => {
             setFilms([])
-            removeFilmFromLocalstorage()
         }
+      
     }
 
 
     return (
         <FilmContext.Provider value={[films, actions]}>
-                {props.children}
+            {props.children}
         </FilmContext.Provider>
     )
 }

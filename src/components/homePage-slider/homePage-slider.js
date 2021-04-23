@@ -45,7 +45,7 @@ function HomePageSlider() {
 
     return (
 
-            <Slider {...settings}>
+            <Slider {...settings} className='mb-5'>
               <div>
                 <div className='poster-slider slider-1'></div>  
               </div>

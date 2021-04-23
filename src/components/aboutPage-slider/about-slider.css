@@ -9,4 +9,18 @@
     font-size: 4rem;
     color: #fff;
     font-weight: 500;
+   
 }
+@media screen and (max-width: 1024px) {
+    .at>div {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .at>div {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+

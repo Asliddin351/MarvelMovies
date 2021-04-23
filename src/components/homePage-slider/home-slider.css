@@ -17,3 +17,15 @@
 .slider-2{
     background-image: url(../../images/slider-2.jpg);
 }
+
+@media screen and (max-width: 1199px) {
+    .poster-slider {
+        min-height: 300px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .poster-slider{
+        min-height: 180px;
+    }
+}

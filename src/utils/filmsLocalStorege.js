@@ -1,15 +1,32 @@
-import data from '../data/data.json'
-
-
 
 export function getFilmFormLocalstorage() {
-    return JSON.parse(localStorage.getItem('films'))
+    return JSON.parse(localStorage.getItem('favourite')) || [];
 }
 
-export function saveFilmToLocalstorage() {
-    return localStorage.setItem('films', JSON.stringify(data))
+export function saveFilmToLocalstorage(favourite) {
+    return localStorage.setItem('favourite', JSON.stringify(favourite));
 }
 
 export function removeFilmFromLocalstorage () {
-    return localStorage.removeItem('films')
+    
+    return localStorage.removeItem('favourite')
 }
+
+
+
+
+
+
+
+
+
+
+// export function isFavourite (favObj) {
+//     let fav = getFilmFormLocalstorage();
+//     return fav.find(el => el.ID == favObj.ID) != null;
+// }
+
+
+
+// let favList = getFilmFormLocalstorage();
+// favList.push(favourite);

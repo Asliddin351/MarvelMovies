@@ -1,10 +1,9 @@
-import React, {useState, useContext} from 'react'
+import React, {useState,useContext} from 'react'
 import {Link} from 'react-router-dom'
 import Backdrop from '../backdrop/backdrop'
 import logo from '../../images/logo.jpg'
-
 import './navbar.css'
-import { FilmContext } from '../../context/films-context'
+import { FavouriteContext } from '../../context/favourite-context'
 
 
 
@@ -28,12 +27,12 @@ const links = [
     },
 ]
 
-function Navbar() {
+function Navbar(props) {
+
+    const fav = useContext(FavouriteContext)[0]
 
     
-
-    const [films, actions] = useContext(FilmContext)
-
+    
     
     const [visible, setVisible] = useState(false)
 
@@ -45,9 +44,9 @@ function Navbar() {
         setVisible(false)
     }
     
-    
+ 
 
-    console.log(actions.count)
+  
  
 
     return (
@@ -70,7 +69,7 @@ function Navbar() {
                                 <li key={index} className='navbar__item'>
                                     <Link to={link.url} className={`navbar__link ${link.counter ? `fav-link` : ''}`}  onClick={hideNavbar}>
 
-                                        {link.counter ? <span className='bg-danger'>{films.count}</span> : null}
+                                        {link.counter ? <span className='bg-danger'>{fav.length}</span> : null}
 
                                         <i className={`fas fa-${link.icon}`}></i>
                                         {link.name}

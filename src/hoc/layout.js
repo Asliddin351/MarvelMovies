@@ -3,11 +3,15 @@ import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
 import './layout.css'
 
+
 const Layout = (props) => {
+
+	
+	
 	return (
 		<>
 			<header>
-				<Navbar/>
+				<Navbar />
 			</header>
 			<main>
 				{props.children}
