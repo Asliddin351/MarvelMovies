@@ -4,3 +4,94 @@ body {
     flex-direction: column;
     height: 100%;
 }
+.emp {
+    padding: 10px;
+    margin: 0 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #282828;
+    width: 100%;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #282828;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.film-item img {
+    max-width: 180px;
+}
+
+.film-page__card-body {
+    background-color: #272727;
+    padding: 20px 15px 15px 15px;
+   
+    border-radius: 5px;
+}
+.card-footer{
+    /* padding: .75rem 1.25rem; */
+    background-color: rgba(0,0,0,.03);
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+.other-films{
+    margin: 15px 0;
+}
+.info-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: .25rem;
+    list-style: none;
+    text-align: justify;
+    
+}
+.info-list li {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: #222;
+    border: 1px solid #282828;
+    color: #fff;
+}
+
+.mini-card {
+    background-color: #282828;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    display: flex;
+}
+.mini-card img {
+    display: block;
+    max-width: 80px;
+    height: auto;
+}
+
+@media screen and (max-width: 575px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .film-poster {
+        float: none;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .film-page__card-body {
+        margin: 0 15px;
+    }
+}

@@ -111,3 +111,9 @@ a {
         display: block;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .navbar__list {
+        width: 50%;
+    }
+}
