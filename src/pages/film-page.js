@@ -22,8 +22,15 @@ const FilmPage = () => {
     })
 	
 
+	const e = films.filter(film=>{
+		if(film.ID === params.id){
+			return false
+		}else{
+			return film
+		}
+	})
 	
-
+	console.log(e)
 
 	
 
@@ -63,18 +70,21 @@ const FilmPage = () => {
 
 				<div className='col-xs-12  col-lg-4 other-films'>
 					<h5>Другие фтльмы:</h5>
-						{films.map(element=>{
-							return (
-								<div key={element.ID} className='mini-card mb-2 mt-2'>
-									<img className='mini-card__poster' src={element.Poster}  alt={element.Title}/>
-									<div className='p-2'>
-										<Link  to={`/film/` + element.ID} className=' mb-2 d-inline-block'>{element.Title}</Link>
-										<p className='mb-0'>Год выпуска: {element.Year}</p>
-										<p className='mb-0'>Длительность: {element.Runtime}</p>
+						{e.map(element=>{
+						
+								return (
+									<div key={element.ID} className='mini-card mb-2 mt-2'>
+										<img className='mini-card__poster' src={element.Poster}  alt={element.Title}/>
+										<div className='p-2'>
+											<Link  to={`/film/` + element.ID} className=' mb-2 d-inline-block'>{element.Title}</Link>
+											<p className='mb-0'>Год выпуска: {element.Year}</p>
+											<p className='mb-0'>Длительность: {element.Runtime}</p>
+										</div>
 									</div>
-
-								</div>
-							)
+								)
+							
+				
+							
 						})}
 				</div>
 			</div>
